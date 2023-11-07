@@ -80,8 +80,12 @@ const Address = ()=>{
                     
                 </ScrollView>
                 <View justifyContent={'space-between'} marginY={2} width={'100%'} position={'absolute'} paddingY={2} height={130} flexDirection={'column'} bottom={0} alignSelf={'center'} alignItems={'center'}>
+                    <TouchableOpacity>
                     <Box justifyContent={'center'} alignItems={'center'} backgroundColor={'#FEFFC1'} width={344} height={50} borderRadius={4} borderColor={'#FFE60D'} borderWidth={3}>Add New Address</Box>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
                     <Box justifyContent={'center'} alignItems={'center'} backgroundColor={'#FFE60D'} width={344} height={50} borderRadius={4}>Save</Box>
+                    </TouchableOpacity>
                 </View>
             </View>
             
