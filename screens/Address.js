@@ -16,7 +16,6 @@ import Payment from "../components/Payment";
 import React, {Component, useState} from "react";
 
 const Address = ()=>{
-    const [selectedValue, setSelectedValue] = useState("");
     const [value, setValue] = React.useState('one');
     return(
         
@@ -33,18 +32,13 @@ const Address = ()=>{
                 <ScrollView>
                     <Text color={'#89580A'} fontSize={14}>Choose And Address</Text>
                     <View alignItems={'center'}>
-                        <Radio.Group
-                    name="myRadioGroup"
-                    value={value}
-                    onChange={(nextValue) => {
-                        setValue(nextValue);
-                    }}
-                    >
-                            <Radio my="1">
-                                <Box
-                                selected={selectedValue === "option1"}
-                                onPress={() => setSelectedValue("option1")}
-                                style={selectedValue === "option1" ? styles.selectedRadioButton : styles.unselectedRadioButton}
+                        <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number" value={value} onChange={nextValue => {
+                            setValue(nextValue);
+                        }}>
+                            <Radio shadow={2} value="one" my="2">
+                            <Box
+                                value="one"
+                                style={setValue === "one" ? styles.selectedRadioButton : styles.unselectedRadioButton}
                                 padding={3} justifyContent={'center'} my={3} borderRadius={10} alignSelf={'center'} height={105} width={300} backgroundColor={'#FEFFC1'}
                                 flexDirection={'row'}
                                 >
@@ -56,23 +50,22 @@ const Address = ()=>{
                                     <Image justifyContent={'center'} zIndex={4} size={6} source={require('../assets/asset_app/edit.png')}/>
                                 </Box>
                             </Radio>
-                            <Radio my="1">
+                            <Radio shadow={2} value="two" my="2">
                                 <Box
-                                selected={selectedValue === "option2"}
-                                onPress={() => setSelectedValue("option2")}
-                                style={selectedValue === "option2" ? styles.selectedRadioButton : styles.unselectedRadioButton}
+                                value="one"
+                                style={setValue === "two" ? styles.selectedRadioButton : styles.unselectedRadioButton}
                                 padding={3} justifyContent={'center'} my={3} borderRadius={10} alignSelf={'center'} height={105} width={300} backgroundColor={'#FEFFC1'}
                                 flexDirection={'row'}
                                 >
                                     <View marginRight={3}>
-                                        <Text color={'#89580A'} fontSize={11}>Mum’s House</Text>
-                                        <Text fontWeight={'bold'} color={'#89580A'} fontSize={14}>Alice Elson</Text>
-                                        <Text color={'#89580A'} fontSize={14}>Erzstrasse Str., 9 Clausthal-Zellerfeld, Germany</Text>
+                                        <Text color={'#89580A'} fontSize={11}>My Office</Text>
+                                        <Text fontWeight={'bold'} color={'#89580A'} fontSize={14}>Brody Pendragon</Text>
+                                        <Text color={'#89580A'} fontSize={14}>Leibnizstraße 16, Wohnheim 6, No: 8X Clausthal-Zellerfeld, Germany</Text>
                                     </View>
                                     <Image justifyContent={'center'} zIndex={4} size={6} source={require('../assets/asset_app/edit.png')}/>
                                 </Box>
                             </Radio>
-                    </Radio.Group>
+                        </Radio.Group>
                     </View>
                     
 

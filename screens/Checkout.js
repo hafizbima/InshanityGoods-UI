@@ -18,8 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import Address from "./Address";
 
 const Checkout = ()=>{
-    const [value, setValue] = React.useState('one');
-    const [selectedValue, setSelectedValue] = useState("");
+    const [value, setValue] = React.useState("one");
     const navigation = useNavigation();
     return(
         <NativeBaseProvider>
@@ -38,35 +37,43 @@ const Checkout = ()=>{
                     
                     
                     <Text fontSize={15} fontWeight={'bold'} color={'#212529'}>Payment</Text>
-                    <Radio.Group
-                    name="myRadioGroup"
-                    value={value}
-                    onChange={(nextValue) => {
-                        setValue(nextValue);
-                    }}
-                    >
-                        <Box
-                        selected={selectedValue === "option1"}
-                        onPress={() => setSelectedValue("option1")}
-                        style={selectedValue === "option1" ? styles.selectedRadioButton : styles.unselectedRadioButton}
-                        padding={3} justifyContent={'center'} my={3} borderRadius={10} alignSelf={'center'} height={66} width={348} backgroundColor={'#FEFFC1'}>
-                            <Radio value="one" my="1">DANA</Radio>
-                        </Box>
-                        <Box
-                        selected={selectedValue === "option2"}
-                        onPress={() => setSelectedValue("option2")}
-                        style={selectedValue === "option2" ? styles.selectedRadioButton : styles.unselectedRadioButton}
-                        padding={3} justifyContent={'center'} my={3} borderRadius={10} alignSelf={'center'} height={66} width={348} backgroundColor={'#FEFFC1'}>
-                            <Radio my="1">Bank</Radio>
-                        </Box>
-                        {/* <Box
-                        selected={selectedValue === "option3"}
-                        onPress={() => setSelectedValue("option3")}
-                        style={selectedValue === "option3" ? styles.selectedRadioButton : styles.unselectedRadioButton}
-                        padding={3} justifyContent={'center'} my={3} borderRadius={10} alignSelf={'center'} height={66} width={348} backgroundColor={'#FEFFC1'}>
-                            <Radio my="1">Gopay</Radio>
-                        </Box> */}
-                    </Radio.Group>
+                    <View justifyContent={'center'} alignItems={'center'}>
+                        <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number" value={value}
+                        onChange={nextValue => {
+                            setValue(nextValue);
+                        }}>
+                            <TouchableOpacity>
+                                <Box 
+                                // value="one"
+                                style={setValue === "one" ? styles.selectedRadioButton : styles.unselectedRadioButton}
+                                padding={3} my={3} borderRadius={10} alignSelf={'center'} height={66} width={348} backgroundColor={'#FEFFC1'}
+                                flexDirection={'row'}
+                                >
+                                    <Radio shadow={2} value="one" my="2">
+                                            <View marginRight={3}>
+                                                <Text fontWeight={'bold'} color={'#89580A'} fontSize={11}>DANA</Text>
+                                            </View>
+                                    </Radio>
+                                </Box>
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Box 
+                                // value="two"
+                                style={setValue === "two" ? styles.selectedRadioButton : styles.unselectedRadioButton}
+                                padding={3} my={3} borderRadius={10} alignSelf={'center'} height={66} width={348} backgroundColor={'#FEFFC1'}
+                                flexDirection={'row'}
+                                >
+                                    <Radio shadow={2} value="two" my="2">
+                                            <View marginRight={3}>
+                                                <Text fontWeight={'bold'} color={'#89580A'} fontSize={11}>GOPAY</Text>
+                                            </View>
+                                    </Radio>
+                                </Box>
+                            </TouchableOpacity>
+                            
+                        </Radio.Group>
+                    </View>
+                    
                     <Text my={3}>Item Detail</Text>
                     <Box padding={3} flexDirection={'row'} alignSelf={'center'} borderRadius={10} backgroundColor={'#FEFFC1'} height={112} width={346}>
                         <Image justifyContent={'center'} marginRight={3} alignSelf={'center'} marginTop={15} width={90} height={65.95} alt="laci" source={{uri:"https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/553/0555306_PE660432_S5.webp"}} />
